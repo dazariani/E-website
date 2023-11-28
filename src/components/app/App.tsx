@@ -3,11 +3,12 @@ import GlobalStyles from "../../globalStyles";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "styled-components";
 import Navbar from "../navbar/Navbar";
-import Header from "../header/Header";
-import CategoryList from "../categoryList/CategoryList";
-import HomeContent from "../homeContent/HomeContent";
-import Footer from "../footer/Footer";
 import Homepage from "../homePage/Homepage";
+import Footer from "../footer/Footer";
+import designData from "../../data";
+import CategoryProducts from "../categories/headphones/CategoryProducts";
+
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 interface ThemeProps {
   darkOrange: string;
@@ -30,6 +31,17 @@ const defaultTheme: ThemeProps = {
 };
 
 function App() {
+  const headphonesData = designData
+    .filter((item) => item.category == "headphones")
+    .reverse();
+  const speakersData = designData
+    .filter((item) => item.category == "speakers")
+    .reverse();
+
+  const earphonesData = designData
+    .filter((item) => item.category == "earphones")
+    .reverse();
+
   return (
     <>
       <ThemeProvider theme={defaultTheme}>
@@ -42,8 +54,31 @@ function App() {
           />
         </HelmetProvider>
         <GlobalStyles />
+        {/*  */}
+
         <Navbar />
-        <Homepage />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route
+              path="/category-headphones"
+              element={<CategoryProducts productsData={headphonesData} />}
+            />
+
+            <Route
+              path="/category-speakers"
+              element={<CategoryProducts productsData={speakersData} />}
+            />
+
+            <Route
+              path="/category-earphones"
+              element={<CategoryProducts productsData={earphonesData} />}
+            />
+          </Routes>
+        </BrowserRouter>
+        <Footer />
+
+        {/*  */}
       </ThemeProvider>
     </>
   );

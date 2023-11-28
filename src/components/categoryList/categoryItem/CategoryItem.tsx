@@ -1,22 +1,26 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 interface Props {
   name: string;
   image: string;
+  link: string;
 }
 
 function CategoryItem(props: Props) {
-  const { name, image } = props;
+  const { name, image, link } = props;
   return (
     <Wrapper>
-      <Container>
-        <Image src={image} />
-        <Name>{name}</Name>
-        <ShopBox>
-          <ShopText>SHOP</ShopText>
-          <Arrow src="/assets/shared/desktop/icon-arrow-right.svg" />
-        </ShopBox>
-      </Container>
+      <Link to={link}>
+        <Container>
+          <Image src={image} />
+          <Name>{name}</Name>
+          <ShopBox>
+            <ShopText>SHOP</ShopText>
+            <Arrow src="/assets/shared/desktop/icon-arrow-right.svg" />
+          </ShopBox>
+        </Container>
+      </Link>
     </Wrapper>
   );
 }
@@ -26,6 +30,10 @@ export default CategoryItem;
 const Wrapper = styled.div`
   margin-top: 90px;
   padding-inline: 24px;
+  & > a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 const Container = styled.div`
   display: flex;

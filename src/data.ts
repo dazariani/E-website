@@ -574,3 +574,5 @@ const designData = [
     ],
   },
 ];
+
+export default designData;

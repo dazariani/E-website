@@ -78,4 +78,5 @@ const SeeProductBtn = styled.button`
   padding-inline: 29.5px;
   padding-block: 15px;
   text-transform: uppercase;
+  border: none;
 `;
