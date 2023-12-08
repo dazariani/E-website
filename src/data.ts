@@ -1,8 +1,11 @@
 const designData = [
   {
+    NumberOfItems: 0,
+    link: "/product-YX1",
     id: 1,
     slug: "yx1-earphones",
     name: "YX1 Wireless Earphones",
+    cartName: "YX1",
     image: {
       mobile: "./assets/product-yx1-earphones/mobile/image-product.jpg",
       tablet: "./assets/product-yx1-earphones/tablet/image-product.jpg",
@@ -64,6 +67,7 @@ const designData = [
     },
     others: [
       {
+        link: "/product-mark1",
         slug: "xx99-mark-one-headphones",
         name: "XX99 Mark I",
         image: {
@@ -73,6 +77,7 @@ const designData = [
         },
       },
       {
+        link: "/product-XX59",
         slug: "xx59-headphones",
         name: "XX59",
         image: {
@@ -82,6 +87,7 @@ const designData = [
         },
       },
       {
+        link: "/product-ZX9",
         slug: "zx9-speaker",
         name: "ZX9 Speaker",
         image: {
@@ -93,9 +99,12 @@ const designData = [
     ],
   },
   {
+    NumberOfItems: 0,
+    link: "/product-XX59",
     id: 2,
     slug: "xx59-headphones",
     name: "XX59 Headphones",
+    cartName: "XX59",
     image: {
       mobile: "./assets/product-xx59-headphones/mobile/image-product.jpg",
       tablet: "./assets/product-xx59-headphones/tablet/image-product.jpg",
@@ -153,6 +162,7 @@ const designData = [
     },
     others: [
       {
+        link: "/product-mark2",
         slug: "xx99-mark-two-headphones",
         name: "XX99 Mark II",
         image: {
@@ -162,6 +172,7 @@ const designData = [
         },
       },
       {
+        link: "/product-mark1",
         slug: "xx99-mark-one-headphones",
         name: "XX99 Mark I",
         image: {
@@ -171,6 +182,7 @@ const designData = [
         },
       },
       {
+        link: "/product-ZX9",
         slug: "zx9-speaker",
         name: "ZX9 Speaker",
         image: {
@@ -182,9 +194,12 @@ const designData = [
     ],
   },
   {
+    NumberOfItems: 0,
+    link: "/product-mark1",
     id: 3,
     slug: "xx99-mark-one-headphones",
     name: "XX99 Mark I Headphones",
+    cartName: "XX99 MK I",
     image: {
       mobile:
         "./assets/product-xx99-mark-one-headphones/mobile/image-product.jpg",
@@ -254,6 +269,7 @@ const designData = [
     },
     others: [
       {
+        link: "/product-mark2",
         slug: "xx99-mark-two-headphones",
         name: "XX99 Mark II",
         image: {
@@ -263,6 +279,7 @@ const designData = [
         },
       },
       {
+        link: "/product-XX59",
         slug: "xx59-headphones",
         name: "XX59",
         image: {
@@ -272,6 +289,7 @@ const designData = [
         },
       },
       {
+        link: "/product-ZX9",
         slug: "zx9-speaker",
         name: "ZX9 Speaker",
         image: {
@@ -283,9 +301,12 @@ const designData = [
     ],
   },
   {
+    NumberOfItems: 0,
+    link: "/product-mark2",
     id: 4,
     slug: "xx99-mark-two-headphones",
     name: "XX99 Mark II Headphones",
+    cartName: "XX99 MK II",
     image: {
       mobile:
         "./assets/product-xx99-mark-two-headphones/mobile/image-product.jpg",
@@ -359,6 +380,7 @@ const designData = [
     },
     others: [
       {
+        link: "/product-mark1",
         slug: "xx99-mark-one-headphones",
         name: "XX99 Mark I",
         image: {
@@ -368,6 +390,7 @@ const designData = [
         },
       },
       {
+        link: "/product-XX59",
         slug: "xx59-headphones",
         name: "XX59",
         image: {
@@ -377,6 +400,7 @@ const designData = [
         },
       },
       {
+        link: "/product-ZX9",
         slug: "zx9-speaker",
         name: "ZX9 Speaker",
         image: {
@@ -388,9 +412,12 @@ const designData = [
     ],
   },
   {
+    NumberOfItems: 0,
+    link: "/product-ZX7",
     id: 5,
     slug: "zx7-speaker",
     name: "ZX7 Speaker",
+    cartName: "ZX7",
     image: {
       mobile: "./assets/product-zx7-speaker/mobile/image-product.jpg",
       tablet: "./assets/product-zx7-speaker/tablet/image-product.jpg",
@@ -452,6 +479,7 @@ const designData = [
     },
     others: [
       {
+        link: "/product-ZX9",
         slug: "zx9-speaker",
         name: "ZX9 Speaker",
         image: {
@@ -461,6 +489,7 @@ const designData = [
         },
       },
       {
+        link: "/product-mark1",
         slug: "xx99-mark-one-headphones",
         name: "XX99 Mark I",
         image: {
@@ -470,6 +499,7 @@ const designData = [
         },
       },
       {
+        link: "/product-XX59",
         slug: "xx59-headphones",
         name: "XX59",
         image: {
@@ -481,9 +511,12 @@ const designData = [
     ],
   },
   {
+    NumberOfItems: 0,
+    link: "/product-ZX9",
     id: 6,
     slug: "zx9-speaker",
     name: "ZX9 Speaker",
+    cartName: "ZX9",
     image: {
       mobile: "./assets/product-zx9-speaker/mobile/image-product.jpg",
       tablet: "./assets/product-zx9-speaker/tablet/image-product.jpg",
@@ -545,6 +578,7 @@ const designData = [
     },
     others: [
       {
+        link: "/product-ZX7",
         slug: "zx7-speaker",
         name: "ZX7 Speaker",
         image: {
@@ -554,6 +588,7 @@ const designData = [
         },
       },
       {
+        link: "/product-mark1",
         slug: "xx99-mark-one-headphones",
         name: "XX99 Mark I",
         image: {
@@ -563,6 +598,7 @@ const designData = [
         },
       },
       {
+        link: "/product-XX59",
         slug: "xx59-headphones",
         name: "XX59",
         image: {

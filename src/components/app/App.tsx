@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import styled from "styled-components";
 import GlobalStyles from "../../globalStyles";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "styled-components";
@@ -7,18 +8,26 @@ import Homepage from "../homePage/Homepage";
 import Footer from "../footer/Footer";
 import designData from "../../data";
 import CategoryProducts from "../categories/headphones/CategoryProducts";
-
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-
-interface ThemeProps {
-  darkOrange: string;
-  lightOrange: string;
-  dark: string;
-  black: string;
-  darkGrey: string;
-  lightGrey: string;
-  white: string;
-}
+import { DataProps } from "../../data-type";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductDetailPage from "../productDetail/ProductDetailPage";
+import CartModal from "../cartModal/CartModal";
+import PageMask from "../pageMask/PageMask";
+import CheckoutSummaryPage from "../checkoutSummeryPage/CheckoutSummaryPage";
+import NavList from "../navList/NavList";
+import ThanksModal from "../thanksModal/ThanksModal";
+import { ThemeProps } from "./app-types";
+import {
+  headphonesData,
+  speakersData,
+  earphonesData,
+  mark2Data,
+  mark1Data,
+  XX59Data,
+  ZX9Data,
+  ZX7Data,
+  YX1Data,
+} from "./app-data";
 
 const defaultTheme: ThemeProps = {
   darkOrange: "rgb(216, 125, 74)",
@@ -30,18 +39,30 @@ const defaultTheme: ThemeProps = {
   white: "rgb(255, 255, 255)",
 };
 
+// Get users list data from localStorage
+const setLocalStorageUserList = () => {
+  let localList = localStorage.getItem("cardList");
+  if (localList) {
+    let newLocalList: DataProps = JSON.parse(localList);
+    return newLocalList;
+  } else {
+    return [];
+  }
+};
+
 function App() {
-  const headphonesData = designData
-    .filter((item) => item.category == "headphones")
-    .reverse();
-  const speakersData = designData
-    .filter((item) => item.category == "speakers")
-    .reverse();
+  const [cardData, setCardData] = useState<DataProps | []>(
+    setLocalStorageUserList()
+    // []
+  );
+  const [showCart, setShowCart] = useState<boolean>(false);
+  const [showNavList, setShowNavList] = useState<boolean>(false);
+  const [showThanks, setShowThanks] = useState<boolean>(false);
+  const [grandTotal, setGrandTotal] = useState<number>(0);
 
-  const earphonesData = designData
-    .filter((item) => item.category == "earphones")
-    .reverse();
-
+  useEffect(() => {
+    localStorage.setItem("cardList", JSON.stringify(cardData));
+  }, [cardData]);
   return (
     <>
       <ThemeProvider theme={defaultTheme}>
@@ -54,29 +75,138 @@ function App() {
           />
         </HelmetProvider>
         <GlobalStyles />
-        {/*  */}
-
-        <Navbar />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route
-              path="/category-headphones"
-              element={<CategoryProducts productsData={headphonesData} />}
+          {cardData.length > 0 && (
+            <ThanksModal
+              grandTotal={grandTotal}
+              showThanks={showThanks}
+              setShowThanks={setShowThanks}
+              cardData={cardData}
             />
+          )}
+          <CartModal
+            cardData={cardData}
+            setCardData={setCardData}
+            showCart={showCart}
+            setShowCart={setShowCart}
+          />
 
-            <Route
-              path="/category-speakers"
-              element={<CategoryProducts productsData={speakersData} />}
-            />
+          <PageMask
+            showThanks={showThanks}
+            showCart={showCart}
+            showNavList={showNavList}
+          />
 
-            <Route
-              path="/category-earphones"
-              element={<CategoryProducts productsData={earphonesData} />}
+          {/*  */}
+          <Container>
+            <Navbar
+              showCart={showCart}
+              setShowCart={setShowCart}
+              showNavList={showNavList}
+              setShowNavList={setShowNavList}
             />
-          </Routes>
+            <NavList showNavList={showNavList} />
+            <Routes>
+              <Route path="/" element={<Homepage designData={designData} />} />
+              {/* Checkout page */}
+              <Route
+                path="/checkout"
+                element={
+                  <CheckoutSummaryPage
+                    cardData={cardData}
+                    setCardData={setCardData}
+                    setGrandTotal={setGrandTotal}
+                    setShowThanks={setShowThanks}
+                  />
+                }
+              />
+              {/* Category pages */}
+              <Route
+                path="/category-headphones"
+                element={<CategoryProducts productsData={headphonesData} />}
+              />
+
+              <Route
+                path="/category-speakers"
+                element={<CategoryProducts productsData={speakersData} />}
+              />
+
+              <Route
+                path="/category-earphones"
+                element={<CategoryProducts productsData={earphonesData} />}
+              />
+
+              {/* Product detail pages */}
+              {/* XX99 Mark II Headphones */}
+              <Route
+                path="/product-mark2"
+                element={
+                  <ProductDetailPage
+                    cardData={cardData}
+                    setCardData={setCardData}
+                    detailData={mark2Data}
+                  />
+                }
+              />
+              {/* XX99 Mark I Headphones */}
+              <Route
+                path="/product-mark1"
+                element={
+                  <ProductDetailPage
+                    cardData={cardData}
+                    setCardData={setCardData}
+                    detailData={mark1Data}
+                  />
+                }
+              />
+              {/* XX59 Headphones */}
+              <Route
+                path="/product-XX59"
+                element={
+                  <ProductDetailPage
+                    cardData={cardData}
+                    setCardData={setCardData}
+                    detailData={XX59Data}
+                  />
+                }
+              />
+              {/* ZX9 SPEAKER */}
+              <Route
+                path="/product-ZX9"
+                element={
+                  <ProductDetailPage
+                    cardData={cardData}
+                    setCardData={setCardData}
+                    detailData={ZX9Data}
+                  />
+                }
+              />
+              {/* ZX7 SPEAKER */}
+              <Route
+                path="/product-ZX7"
+                element={
+                  <ProductDetailPage
+                    cardData={cardData}
+                    setCardData={setCardData}
+                    detailData={ZX7Data}
+                  />
+                }
+              />
+              {/* YX1 WIRELESS EARPHONES */}
+              <Route
+                path="/product-YX1"
+                element={
+                  <ProductDetailPage
+                    cardData={cardData}
+                    setCardData={setCardData}
+                    detailData={YX1Data}
+                  />
+                }
+              />
+            </Routes>
+            <Footer />
+          </Container>
         </BrowserRouter>
-        <Footer />
 
         {/*  */}
       </ThemeProvider>
@@ -85,3 +215,5 @@ function App() {
 }
 
 export default App;
+
+const Container = styled.div``;

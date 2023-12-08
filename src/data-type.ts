@@ -1,7 +1,10 @@
 export type DataProps = {
+  NumberOfItems: number;
+  link: string;
   id: number;
   slug: string;
   name: string;
+  cartName: string;
   image: {
     mobile: string;
     tablet: string;
@@ -39,6 +42,7 @@ export type DataProps = {
     };
   };
   others: {
+    link: string;
     slug: string;
     name: string;
     image: {

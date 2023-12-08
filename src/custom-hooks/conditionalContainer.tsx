@@ -1,14 +1,9 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import { BurgerProps } from "../components/navbar/Navbar";
 
-import useWindowWidth from "./useWindowWidth";
-
-interface Props {}
-
-function ConditionalContainer(Component: () => JSX.Element) {
-  return (props: Props) => (
+function ConditionalContainer(Component: any) {
+  return (props: BurgerProps) => (
     <div style={{ display: "flex", gap: "42px" }}>
-      <Component />
+      <Component {...props} />
     </div>
   );
 }

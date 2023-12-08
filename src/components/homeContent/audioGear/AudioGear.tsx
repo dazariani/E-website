@@ -1,11 +1,30 @@
-import styled from "styled-components";
+import useWindowWidth from "../../../useWindowWidth";
+import {
+  Wrapper,
+  Container,
+  ImageBox,
+  Image,
+  ContentBox,
+  Title,
+  BestWord,
+  Content,
+} from "./audioGear-styles";
 
 function AudioGear() {
+  const width = useWindowWidth();
   return (
     <Wrapper>
       <Container>
         <ImageBox>
-          <Image src="/assets/shared/mobile/image-best-gear.jpg" />
+          <Image
+            src={`/assets/shared/${
+              width < 768
+                ? "mobile"
+                : width >= 768 && width < 1440
+                ? "tablet"
+                : "desktop"
+            }/image-best-gear.jpg`}
+          />
         </ImageBox>
 
         <ContentBox>
@@ -27,39 +46,3 @@ function AudioGear() {
 }
 
 export default AudioGear;
-
-const Wrapper = styled.div`
-  padding-inline: 24px;
-  padding-bottom: 120px;
-`;
-const Container = styled.div``;
-const ImageBox = styled.div`
-  max-width: 327px;
-  border-radius: 8px;
-  margin-bottom: 40px;
-`;
-const Image = styled.img`
-  width: 100%;
-  border-radius: 8px;
-`;
-
-const ContentBox = styled.div`
-  text-align: center;
-`;
-const Title = styled.h1`
-  font-size: 28px;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 32px;
-`;
-const BestWord = styled.span`
-  color: ${(props) => props.theme.darkOrange};
-`;
-const Content = styled.p`
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 25px;
-  opacity: 0.5;
-`;

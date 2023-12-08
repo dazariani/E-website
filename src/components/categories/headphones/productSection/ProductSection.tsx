@@ -1,10 +1,7 @@
 import styled from "styled-components";
-import { DataProps } from "../../../../data-type";
+import { Props } from "./productSection-types";
 import ProductItem from "./productItem/ProductItem";
-
-interface Props {
-  data: DataProps;
-}
+import { Container } from "./productSection-styles";
 
 function ProductSection(props: Props) {
   const { data } = props;
@@ -12,8 +9,9 @@ function ProductSection(props: Props) {
     <Container>
       {data.map((item) => {
         const {
+          link,
           id,
-          categoryImage: { mobile },
+          categoryImage: { mobile, tablet, desktop },
           name,
           description,
           new: isNew,
@@ -25,6 +23,9 @@ function ProductSection(props: Props) {
             name={name}
             image={mobile}
             description={description}
+            link={link}
+            imageTab={tablet}
+            imageDesk={desktop}
           ></ProductItem>
         );
       })}
@@ -33,7 +34,3 @@ function ProductSection(props: Props) {
 }
 
 export default ProductSection;
-
-const Container = styled.div`
-  padding-top: 64px;
-`;

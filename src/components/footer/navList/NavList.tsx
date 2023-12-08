@@ -1,33 +1,28 @@
-import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { NavUList, NavListItem } from "./navList-styles";
 
 function NavList() {
   return (
     <>
       <NavUList>
-        <NavListItem>Home</NavListItem>
-        <NavListItem>HEADPHONES</NavListItem>
-        <NavListItem>SPEAKERS</NavListItem>
-        <NavListItem>EARPHONES</NavListItem>
+        <Link to="/" target="_top">
+          <NavListItem>Home</NavListItem>
+        </Link>
+
+        <Link to="/category-headphones" target="_top">
+          <NavListItem>HEADPHONES</NavListItem>
+        </Link>
+
+        <Link to="/category-speakers" target="_top">
+          <NavListItem>SPEAKERS</NavListItem>
+        </Link>
+
+        <Link to="/category-earphones" target="_top">
+          <NavListItem>EARPHONES</NavListItem>
+        </Link>
       </NavUList>
     </>
   );
 }
 
 export default NavList;
-
-const NavUList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  list-style: none;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-`;
-const NavListItem = styled.li`
-  margin-bottom: 16px;
-  &:last-child {
-    margin: 0;
-  }
-`;

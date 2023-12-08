@@ -1,13 +1,15 @@
 import CategoryList from "../categoryList/CategoryList";
 import Header from "../header/Header";
 import HomeContent from "../homeContent/HomeContent";
+import { Props } from "./homepage-types";
 
-function Homepage() {
+function Homepage(props: Props) {
+  const { designData } = props;
   return (
     <>
-      <Header />
+      <Header designData={designData} />
       <CategoryList />
-      <HomeContent />
+      <HomeContent designData={designData} />
     </>
   );
 }

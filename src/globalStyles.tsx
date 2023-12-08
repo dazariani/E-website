@@ -12,6 +12,9 @@ const GlobalStyles = createGlobalStyle`
     svg{
         display: block;
     }
+    a{
+        text-decoration: none;
+    }
     body{
         min-height: 100vh;
         font-family: 'Manrope';

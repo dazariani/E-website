@@ -1,13 +1,16 @@
 import { useState } from "react";
-import styled from "styled-components";
 import { DataProps } from "../../../data-type";
 import ProductSection from "./productSection/ProductSection";
 import CategoryList from "../../categoryList/CategoryList";
 import AudioGear from "../../homeContent/audioGear/AudioGear";
-
-interface Props {
-  productsData: DataProps;
-}
+import { Props } from "./categoryProducts-types";
+import {
+  Wrapper,
+  Container,
+  HeaderBox,
+  Header,
+  AudioGeraBox,
+} from "./categoryProducts-styles";
 
 function CategoryProducts(props: Props) {
   const { productsData } = props;
@@ -22,28 +25,12 @@ function CategoryProducts(props: Props) {
         </HeaderBox>
         <ProductSection data={data}></ProductSection>
         <CategoryList />
-        <AudioGear />
+        <AudioGeraBox>
+          <AudioGear />
+        </AudioGeraBox>
       </Container>
     </Wrapper>
   );
 }
 
 export default CategoryProducts;
-
-const Wrapper = styled.div``;
-const Container = styled.div``;
-const HeaderBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: ${(props) => props.theme.black};
-  color: ${(props) => props.theme.white};
-  padding-block: 32px;
-`;
-const Header = styled.h1`
-  font-size: 28px;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-`;
