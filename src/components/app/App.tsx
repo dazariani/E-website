@@ -75,7 +75,7 @@ function App() {
           />
         </HelmetProvider>
         <GlobalStyles />
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.REACT_APP_URI}>
           {cardData.length > 0 && (
             <ThanksModal
               grandTotal={grandTotal}
