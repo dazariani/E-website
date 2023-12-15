@@ -9,7 +9,7 @@ import Footer from "../footer/Footer";
 import designData from "../../data";
 import CategoryProducts from "../categories/headphones/CategoryProducts";
 import { DataProps } from "../../data-type";
-import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import ProductDetailPage from "../productDetail/ProductDetailPage";
 import CartModal from "../cartModal/CartModal";
 import PageMask from "../pageMask/PageMask";
