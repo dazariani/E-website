@@ -75,7 +75,7 @@ function App() {
           />
         </HelmetProvider>
         <GlobalStyles />
-        <HashRouter basename="/E-website/">
+        <HashRouter>
           {cardData.length > 0 && (
             <ThanksModal
               grandTotal={grandTotal}
