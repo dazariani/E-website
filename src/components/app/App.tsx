@@ -75,7 +75,7 @@ function App() {
           />
         </HelmetProvider>
         <GlobalStyles />
-        <BrowserRouter>
+        <BrowserRouter basename="/E-website/">
           {cardData.length > 0 && (
             <ThanksModal
               grandTotal={grandTotal}
