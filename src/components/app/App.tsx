@@ -9,7 +9,7 @@ import Footer from "../footer/Footer";
 import designData from "../../data";
 import CategoryProducts from "../categories/headphones/CategoryProducts";
 import { DataProps } from "../../data-type";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import ProductDetailPage from "../productDetail/ProductDetailPage";
 import CartModal from "../cartModal/CartModal";
 import PageMask from "../pageMask/PageMask";
@@ -75,7 +75,7 @@ function App() {
           />
         </HelmetProvider>
         <GlobalStyles />
-        <BrowserRouter basename="/E-website/">
+        <HashRouter basename="/E-website/">
           {cardData.length > 0 && (
             <ThanksModal
               grandTotal={grandTotal}
@@ -206,7 +206,7 @@ function App() {
             </Routes>
             <Footer />
           </Container>
-        </BrowserRouter>
+        </HashRouter>
 
         {/*  */}
       </ThemeProvider>
