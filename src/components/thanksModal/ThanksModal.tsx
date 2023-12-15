@@ -48,8 +48,8 @@ function ThanksModal(props: Props) {
         </Header>
         <ProductPriceBox>
           <ProductOtherBox>
-            {renderList().map((item) => (
-              <ProductBox>
+            {renderList().map((item, ind) => (
+              <ProductBox key={ind}>
                 <ImageProductBox>
                   {/* Image */}
                   <ImageBox>
