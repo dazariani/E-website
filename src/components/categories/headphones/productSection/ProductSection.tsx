@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { Props } from "./productSection-types";
 import ProductItem from "./productItem/ProductItem";
 import { Container } from "./productSection-styles";

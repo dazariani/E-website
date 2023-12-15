@@ -15,7 +15,7 @@ import {
 function CategoryProducts(props: Props) {
   const { productsData } = props;
 
-  const [data, setData] = useState<DataProps>(productsData);
+  const [data] = useState<DataProps>(productsData);
 
   return (
     <Wrapper>

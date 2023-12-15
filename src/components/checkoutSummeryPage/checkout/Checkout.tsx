@@ -29,7 +29,7 @@ function Checkout(props: Props) {
 
   console.log(watch("payment"));
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit: SubmitHandler<Inputs> = () => {
     setShowThanks(true);
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };

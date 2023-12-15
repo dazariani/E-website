@@ -2,7 +2,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import ConditionalContainer from "../../custom-hooks/conditionalContainer";
 import useWindowWidth from "../../custom-hooks/useWindowWidth";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import NavList from "../footer/navList/NavList";
 import {
   Wrapper,
